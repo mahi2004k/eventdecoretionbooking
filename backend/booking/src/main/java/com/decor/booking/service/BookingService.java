@@ -4,6 +4,8 @@ import com.decor.booking.entity.Booking;
 import com.decor.booking.repository.BookingRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookingService {
 
@@ -23,5 +25,16 @@ public class BookingService {
         whatsAppService.sendAdminBookingNotification(savedBooking);
 
         return savedBooking;
+    }
+
+    public List<Booking> getAllBookings() {
+        return bookingRepository.findAll();
+    }
+
+    public Booking updateStatus(Long id, String status) {
+        return bookingRepository.findById(id).map(booking -> {
+            booking.setStatus(status);
+            return bookingRepository.save(booking);
+        }).orElse(null);
     }
 }

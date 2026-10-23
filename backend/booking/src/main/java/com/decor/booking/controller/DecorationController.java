@@ -42,4 +42,17 @@ public class DecorationController {
 
         return service.getEventsByCategory(category);
     }
+
+    // FIXED: Changed decorationEventService to service
+    @PostMapping
+    public ResponseEntity<DecorationEvent> createEvent(@RequestBody DecorationEvent event) {
+        return ResponseEntity.ok(service.saveEvent(event));
+    }
+
+    // FIXED: Changed decorationEventService to service
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
+        service.deleteEvent(id);
+        return ResponseEntity.ok().build();
+    }
 }

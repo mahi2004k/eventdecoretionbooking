@@ -31,4 +31,13 @@ public class DecorationEventService {
         return repository
                 .findByCategoryIgnoreCaseAndActiveTrue(category);
     }
+
+    // --- ADD THESE TWO METHODS ---
+    public DecorationEvent saveEvent(DecorationEvent event) {
+        return repository.save(event);
+    }
+
+    public void deleteEvent(Long id) {
+        repository.deleteById(id);
+    }
 }
