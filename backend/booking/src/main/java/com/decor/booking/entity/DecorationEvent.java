@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+
 @Entity
 @Table(name = "decoration_events")
 @Getter
@@ -13,6 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DecorationEvent {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,10 +29,24 @@ public class DecorationEvent {
     @Column(length = 1000)
     private String description;
 
+    @Column(length = 3000)
+    private String detailedDescription; // For full details on the event details page
+
     private String coverImageUrl;
+
+    private Double price; // Starting price for the event package
+
+    @ElementCollection
+    @CollectionTable(name = "event_gallery_images", joinColumns = @JoinColumn(name = "event_id"))
+    @Column(name = "image_url", length = 1000)
+    private List<String> galleryImages; // Stores multiple related work photos
+
+    @Column(length = 1000)
+    private String videoUrl; // For event setup video embed link
 
     private boolean active = true;
 
+    // Existing constructor (retained for backward compatibility)
     public DecorationEvent(
             String name,
             String category,

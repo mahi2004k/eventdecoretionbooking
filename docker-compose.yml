@@ -1,0 +1,40 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: event_mysql
+    environment:
+      MYSQL_DATABASE: event_booking
+      MYSQL_ROOT_PASSWORD: '@Mahesh2004'
+    ports:
+      - "3308:3306"
+    volumes:
+      - mysqldata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-p@Mahesh2004"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./backend/booking
+    container_name: event_backend
+    ports:
+      - "8080:8080"
+    environment:
+      - DB_URL=jdbc:mysql://mysql:3306/event_booking?allowPublicKeyRetrieval=true&useSSL=false
+      - DB_USER=root
+      - DB_PASSWORD=@Mahesh2004
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+  frontend:
+    build: ./frontend/decor-frontend
+    container_name: event_frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mysqldata:

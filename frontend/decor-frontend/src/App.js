@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
+import EventsPage from "./pages/EventsPage"; // <-- 1. IMPORT YOUR EVENTS PAGE
 import BookingPage from "./pages/BookingPage";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminLogin from "./pages/AdminLogin";
 import ProtectedRoute from "./components/ProtectedRoute";
+import EventDetailsPage from "./pages/EventDetailsPage"
 
 function App() {
   return (
@@ -16,9 +18,10 @@ function App() {
         <main style={{ flex: 1 }}>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/events" element={<HomePage />} />
+            <Route path="/events" element={<EventsPage />} /> {/* <-- 2. POINT TO EVENTSPAGE HERE */}
             <Route path="/book" element={<BookingPage />} />
             <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/events/:id" element={<EventDetailsPage />} />
             <Route 
               path="/admin" 
               element={
