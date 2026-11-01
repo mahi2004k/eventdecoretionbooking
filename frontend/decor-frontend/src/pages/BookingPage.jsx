@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
+const API_BASE = process.env.REACT_APP_API_BASE_URL || "";
+
 const TIME_SLOTS = ["Morning", "Afternoon", "Evening", "Night"];
 
 const BookingPage = () => {
@@ -38,7 +40,7 @@ const BookingPage = () => {
     setMessage("");
     setIsError(false);
     try {
-      const response = await fetch("http://localhost:8080/api/bookings", {
+      const response = await fetch(`${API_BASE}/api/bookings`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),

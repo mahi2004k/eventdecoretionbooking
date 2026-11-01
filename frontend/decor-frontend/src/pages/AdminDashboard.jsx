@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 // Externalized API Base URL (Fallback to http://localhost:8080 for local dev)
 // Note: If using Vite, replace process.env.REACT_APP_API_BASE_URL with import.meta.env.VITE_API_URL
-const API_BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+const API_BASE = process.env.REACT_APP_API_BASE_URL || "";
 const API = `${API_BASE}/api`;
 
 const EMPTY_EVENT = { id: null, name: "", category: "", description: "", detailedDescription: "", price: "" };
@@ -206,7 +206,7 @@ const AdminDashboard = () => {
         {message && (
           <div className="ad-alert" role="status">
             <span>{message}</span>
-            <button onClick={() => setMessage("")} aria-label="Dismiss">×</button>
+            <button onClick={() => setMessage("")} aria-label="Dismiss">Ã—</button>
           </div>
         )}
 
@@ -286,7 +286,7 @@ const AdminDashboard = () => {
                         <td className="ad-muted">#{ev.id}</td>
                         <td><strong>{ev.name}</strong></td>
                         <td><span className="ad-badge ad-tag">{ev.category}</span></td>
-                        <td>{ev.price ? `₹${Number(ev.price).toLocaleString("en-IN")}` : "N/A"}</td>
+                        <td>{ev.price ? `â‚¹${Number(ev.price).toLocaleString("en-IN")}` : "N/A"}</td>
                         <td>
                           <div className="ad-actions">
                             <button
@@ -342,7 +342,7 @@ const AdminDashboard = () => {
                 </label>
 
                 <label className="ad-field">
-                  <span>Starting price (₹)</span>
+                  <span>Starting price (â‚¹)</span>
                   <input
                     type="number"
                     min="0"

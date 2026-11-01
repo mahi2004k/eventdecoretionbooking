@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+const API_BASE = process.env.REACT_APP_API_BASE_URL || "";
 const defaultImage =
   "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=600&auto=format&fit=crop";
 
@@ -157,7 +157,7 @@ const EventsPage = () => {
                         {event.price ? (
                           <>
                             <small>Starting at</small>
-                            <strong>₹{Number(event.price).toLocaleString("en-IN")}</strong>
+                            <strong>â‚¹{Number(event.price).toLocaleString("en-IN")}</strong>
                           </>
                         ) : (
                           <small>Price on request</small>

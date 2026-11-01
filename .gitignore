@@ -1,0 +1,29 @@
+# Environment files and secrets
+.env
+.env.*
+!.env.example
+
+# Database backups and dumps
+*.sql
+*.sql.gz
+
+# Uploaded user content
+uploads/
+backend/booking/uploads/
+
+# Node.js dependencies and build output
+node_modules/
+frontend/decor-frontend/node_modules/
+frontend/decor-frontend/build/
+
+# Java build output
+backend/booking/target/
+
+# Local backup copies
+frontend-backup-before-aws/
+
+# Local Nginx backup
+frontend/decor-frontend/nginx.conf.backup
+
+# Local Nginx backup
+frontend/decor-frontend/nginx.conf.backup

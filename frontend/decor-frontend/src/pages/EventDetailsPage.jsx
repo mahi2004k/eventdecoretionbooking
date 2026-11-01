@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 
 // Externalized API Base URL (Fallback to http://localhost:8080 for local dev)
 // Note: If using Vite, replace process.env.REACT_APP_API_BASE_URL with import.meta.env.VITE_API_URL
-const API_BASE = process.env.REACT_APP_API_BASE_URL || "http://localhost:8080";
+const API_BASE = process.env.REACT_APP_API_BASE_URL || "";
 
 const defaultImage =
   "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&auto=format&fit=crop";
@@ -96,7 +96,7 @@ const EventDetailsPage = () => {
 
       <div className="ed-wrap">
         <button onClick={() => navigate("/events")} className="ed-back">
-          ← All packages
+          â† All packages
         </button>
 
         {/* Hero: summary + main image */}
@@ -109,7 +109,7 @@ const EventDetailsPage = () => {
             {event.price > 0 && (
               <div className="ed-price">
                 <small>Starting at</small>
-                <strong>₹{Number(event.price).toLocaleString("en-IN")}</strong>
+                <strong>â‚¹{Number(event.price).toLocaleString("en-IN")}</strong>
               </div>
             )}
 

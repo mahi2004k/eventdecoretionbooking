@@ -35,14 +35,14 @@ public class DataInitializer implements CommandLineRunner {
                         "Ring Ceremony",
                         "Ring Ceremony",
                         "Elegant stage setups for your special ring ceremony.",
-                        "/images/events/ring-ceremony.jpg",
+                        "/images/events/ring-ceremony.jpeg",
                         true
                 ),
                 new DecorationEvent(
                         "Engagement Decoration",
                         "Engagement",
                         "Celebrate your engagement with a beautiful backdrop.",
-                        "/images/events/engagement.jpg",
+                        "/images/events/engagement.jpeg",
                         true
                 ),
                 new DecorationEvent(
@@ -63,7 +63,7 @@ public class DataInitializer implements CommandLineRunner {
                         "Haldi Ceremony",
                         "Haldi",
                         "Traditional yellow floral decoration for your Haldi.",
-                        "/images/events/haldi.jpg",
+                        "/images/events/haldi.jpeg",
                         true
                 ),
                 new DecorationEvent(
@@ -84,14 +84,14 @@ public class DataInitializer implements CommandLineRunner {
                         "Naming Ceremony",
                         "Naming Ceremony",
                         "Lovely decoration for your baby's naming celebration.",
-                        "/images/events/naming-ceremony.jpg",
+                        "/images/events/naming-ceremony.jpeg",
                         true
                 ),
                 new DecorationEvent(
                         "Corporate Events",
                         "Corporate",
                         "Professional stage and venue decoration for business events.",
-                        "/images/events/corporate.jpg",
+                        "/images/events/corporate.jpeg",
                         true
                 )
         );
